@@ -1,38 +1,500 @@
-.App {
-  text-align: center;
+:root {
+  --white: #fff;
+  --blue: #fbb;
+  --alert-transition: 200ms all ease-in-out;
+  --resume-primary-color: none;
+  --resume-secondary-color: none;
+  --resume-background-color: none;
+  --resume-primary-font: none;
+  --resume-secondary-font:none;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital@0;1&family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,500;1,600;1,700&family=Zen+Antique&family=Zen+Antique+Soft&display=swap');
+.form-container {
+  padding: 1.2rem;
+  font-family: monospace;
+  background-repeat: no-repeat;
+  background-size: contain;
   display: flex;
   flex-direction: column;
+  width: 550px;
+  height: 94vh;
+  overflow: scroll;
+  background-color: rgb(233, 233, 233);
+}
+.add-icon-container {
+  padding: 10px;
+  display: flex;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  cursor: pointer;
+  background-color: rgb(0, 134, 0);
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.add-icon-container .add-icon-title {
+  margin-left: 10px;
+  font-size: 1.3rem;
+  align-self: center;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.add-icon-container:hover {
+  background-color: rgb(0, 107, 168);
+}
+h1{
+  text-align: center;
+}
+.dialog-box-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  overflow-y: scroll;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  min-width: 930px;
+  background: rgba(0, 0, 0, 0.301);
+ 
+}
+.dialog-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 50%;
+  background:rgb(122, 140, 219);
+  border-radius: 1rem;
+  border: 0.2rem solid black;
+  padding: 2rem;
+  height: fit-content;
+}
+
+.input-box {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  background: white;
+  margin-bottom: 10px;
+  border-radius: 1rem;
+}
+.input-box > label {
+  border-bottom: 2px solid black;
+  font-size: 1.3rem;
+  font-weight: bold;
+}
+
+.input-box > input, textarea {
+  width: 100%;
+  font-family: monospace;
+  font-size: 1.1rem;
+  padding-top: 1rem;
+  border-width: 0px;
+  border-bottom: 2px orange solid;
+}
+.input-box > input:focus, textarea:focus {
+  outline: none;
+  border-bottom: 2px blue solid;
+}
+.dialog-button{
+  font-size: 1.5rem;
+  border-radius: 1rem;
+  background: rgb(214, 214, 219);
+  border: 2px solid orange;
+  font-family: monospace;
+  font-weight: bold;
+  padding: 0.7rem;
+  padding-bottom: 5px;
+  width: 110px;
+}
+
+.element{
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  background-color: white;
+  border: 2px black solid;
+  border-radius: 1rem;
+  border-top-right-radius: 0;
+  padding: 1rem;
+  margin: 1rem;
+}
+
+.element .element-title{
+  font-size: 1.2rem;
+  font-weight: bold;
+  border-bottom: 2px solid black;
+  padding-bottom: 0.6rem;
+}
+
+.element .element-fromto{
+  font-weight: bold;
+  padding-top: 0.6rem;
+  padding-bottom: 0.6rem;
+}
+
+.element .element-description{
+  padding-top: 0.6rem;
+  font-size: 1rem;
+}
+.skills{
+  flex-direction: row;
+  padding-right: 35px;
+  justify-content: space-between;
+align-items: center;
+
+}
+.skills .element-title{
+font-size: 1rem;
+flex: 3;
+border-bottom: 0px;
+
+}
+.social-icon{
+  color: var(--resume-secondary-color);
+}
+.skills .element-progress{
+border-radius: 1rem;
+flex: 1;
+border: 2px solid black;
+width: 100px;
+height: 11px;
+}
+.edit-icon{
+  position: absolute;
+  right: 0px;
+  top:0px;
+  width: fit-content;
+  padding: 5px;
+  border-radius: 0px 0px 0px 10px;
+  background-color: rgb(0, 55, 117);
+  color:white;
+}
+
+.edit-icon:hover{
+  background-color: orangered;
+}
+
+.dialog-button-container{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.dialog-button-container *{
+  margin: 1rem;
+}
+
+
+
+.personal-details-container{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.personal-details-container input{
+  margin: 0.5rem;
+  font-size: 1.1rem;
+  font-family: monospace;
+  border: 0px solid black;
+  border-bottom: 1px solid rgb(0, 0, 0);
+}
+.personal-details-container input:focus{
+  outline: none;
+  border-bottom: 1px solid orange;
+}
+
+.element-container, .education-container, .skill-container, .achievement-container{
+  background-color: rgb(255, 251, 251);
+  margin: 1rem;
+  border: 2px solid green;
+}
+.element-loading{
+  display: none;
+}
+
+.distribute{
+  display: flex;
+  font-family: monospace;
+}
+
+.distribute .display-resume{
+  background-color: grey;
+  font-family: 'Open Sans', sans-serif;
+  font-family: monospace;
+    width: 100%;
+    color: black;
+    height: 100vh;
+    overflow: scroll;
+}
+
+.display-resume-head{
+  font-size: 1.6rem;
+  text-align: center;
+  font-weight: bold;
+  background-color: rgb(0, 82, 177);
+  color: white;
+  padding: 5px;
+  border-bottom: 2px solid black;
+}
+.resume-container{
+  margin: 6px;
+  padding: 10px;
+  background-color: var(--resume-background-color);
+}
+.personal-info{
+  border-bottom: 2px solid black;
+  padding-bottom: 10px;
+}
+.person-name{
+  /* font-family: 'Zen Antique Soft', serif; */
+  color: var(--resume-primary-color);
+  text-align: center;
+  font-size: 35px;
+  font-weight: 400;
+  font-family: var(--resume-primary-font);
+}
+.person-other-info{
+  display: flex;
+  font-weight:400;
+  justify-content: center;
+  align-items: center;
+}
+.person-other-info >*{
+  margin-top: 5px;
+  font-size: 19px;
+  display: flex;
+  align-self: center;
+  color: var(--resume-secondary-color);
+}
+.person-other-info >.person-social{
+  padding-left: 5px;
+  padding-right: 5px;
+}
+.person-other-info >*>*{
+  padding: 2px;
+}
+.person-elements{
+  border-bottom: 1px solid black;
+  margin-left: 10px;
+  margin-right: 10px;
+  color: var(--resume-secondary-color);
+  font-family: var(--resume-secondary-font);
+}
+.person-skills{
+  color: black;
+  display: flex;
+  flex-wrap: wrap;
+}
+.person-elements-head{
+  margin-top: 8px;
+  margin-bottom: 8px;
+  font-family: monospace;
+  font-weight: bold;
+  font-size: 25px;
+  width: fit-content; 
+  color: var(--resume-primary-color);
+  font-family: var(--resume-primary-font);
+}
+.person-elements-element{
+  width: 100%;
+
+}
+.person-elements-box{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.person-elements-box .person-elements-element-title{
+  font-size: 20px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  /* border-bottom: 0.5px solid rgb(88, 88, 88); */
+}
+.person-elements-element-title>*{
+  align-self: center;
+}
+.resume-link{
+  display: flex;
+  margin-left: 10px;
+  align-self: center;
+}
+.resume-link >*{
+  padding-right: 5px;
+  padding-left: 5px;
+  align-self: center;
+}
+
+.person-elements-box .person-elements-element-startend{
+  font-style: italic;
+  font-weight: 500;
+  font-size: 15px;
+}
+.person-element-description{
+  font-size: 16px !important;
+  line-height: 1.3;
+}
+
+.person-skills .person-elements-element-title{
+  font-size: 18px;
+  color: var(--resume-secondary-color)
+}
+.project-description{
+  font-size: 15px;
+}
+.achievements-title{
+  font-weight: 500;
+  font-size: 18px !important;
+}
+.nav-buttons{
+  display: flex;
+  justify-content: center;
+}
+.blank-project{
+  padding: 4px;
+  font-weight: 100;
+  text-align: center;
+  /* font-weight: bold; */
+  background-color: rgb(21, 98, 241);
+  color: white;
+  /* font-family: 'Open Sans', sans-serif; */
+  border: 2px solid black;
+  border-radius: 5px;
+  /* width: 189px; */
+  margin-left: 10px;
+  cursor: pointer;
+  font-size: 15px;
+
+}
+.blank-project:hover{
+  background-color: orange;
+  transition: var(--alert-transition);
+}
+.alert-box{
+  position: fixed;
+  bottom: 0;
+  z-index: 2;
+  left: 0;
+  right: 0;
+  font-family: monospace;
+  /* width: 300px; */
+  text-align: center;
+  padding: 10px;
+  margin: auto;
+  /* border-radius: 1rem; */
+  background-color: black;
+  color: white;
+  font-weight: bold;
+  font-size: 1.3rem;
+  border-radius: 2px solid orange;
+  transform: translateY(200px);
+  transition: var(--alert-transition);
+
+}
+.show-alert{
+  transform: translateY(0px);
+  transition: var(--alert-transition);
+
+}
+.display-resume{
+  display: flex;
+  flex-direction: column;
+}
+.resume-save{
+  width: 360px;
+  cursor: pointer;
+  align-self: center;
+  font-family: monospace;
+  border-radius: 1rem;
+  margin: auto;
+  margin-bottom: 10px;
+  color: white;
+  background-color: rgb(255, 57, 90);
+  padding: 0.5rem;
+  font-size: 1.3rem;
+  border: 2px solid black;
+}
+
+.change-theme{
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  background-color: white;
+  align-items: center;
+  padding: 6px;
+}
+.change-theme .change-theme-element{
+  display: flex;
+  border: 1px solid black;
+  border-radius: 15px;
+  color: white;
+  margin-left: 10px;
+  margin-right: 10px;
+  align-items: center;
+  padding: 3px;
+  font-weight: 600;
+  font-size: 16px;
+  background-color: rgb(255, 168, 70);
+  cursor: pointer;
+}
+.change-theme-element .color-pick{
+  border-radius: 14px;
+  width: 14px;
+  height: 14px;
+  border: 1px solid black;
+}
+.change-theme-element *{
+  padding: 5px;
+  color: black;
+}
+.font-select{
+  margin-top: 5px;
+  border-radius: 4px !important;
+  color: rgb(19, 13, 13) !important;
+  font-size: 17px !important;
+  font-style: italic;
+  font-weight: 200 !important;
+  font-family: 'Open-Sans', sans-serif;
+}
+@media (max-width: 900px) {
+  .distribute{
+    flex-direction: column;
   }
-  to {
-    transform: rotate(360deg);
+    .form-container{
+      height: auto;
+      overflow:visible;
+      align-self: center;
+      width: 85%;
+      margin:auto;
+    }
+    .distribute .display-resume{
+        overflow: auto;
+        height: auto;
+    }
+}
+
+@media print {
+  .distribute .form-container{
+    display: none;
+  }
+  .display-resume-head {
+    display: none;
+  }
+  .change-theme{
+    display: none;
+  }
+  .resume-container {
+    position: absolute;
+    left: 0;
+    top: 0;
+    margin:0;
+    overflow: auto;
+  }
+  .resume-save{
+    display: none;
+  }
+  .alert-box{
+    display: none;
   }
 }
